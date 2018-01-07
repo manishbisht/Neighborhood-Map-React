@@ -9,16 +9,12 @@ class LocationList extends Component {
         super(props);
         this.state = {
             'locations': '',
-            'query': ''
+            'query': '',
+            'suggestions': true,
         };
 
         this.filterLocations = this.filterLocations.bind(this);
-    }
-
-    renderResults() {
-        return (
-            <LocationItem data={this.state.locations}/>
-        );
+        this.toggleSuggestions = this.toggleSuggestions.bind(this);
     }
 
     filterLocations(event) {
@@ -46,12 +42,16 @@ class LocationList extends Component {
         });
     }
 
+    toggleSuggestions() {
+        this.setState({
+            'suggestions': !this.state.suggestions
+        });
+    }
+
     render() {
         var locationlist = this.state.locations.map(function (listItem, index) {
             return (
-                <div>
-                    <LocationItem key={index} openInfoWindow={this.props.openInfoWindow.bind(this)} data={listItem}/>
-                </div>
+                <LocationItem key={index} openInfoWindow={this.props.openInfoWindow.bind(this)} data={listItem}/>
             );
         }, this);
 
@@ -60,8 +60,9 @@ class LocationList extends Component {
                 <input id="search-field" className="search-field" type="text" placeholder="Filter"
                        value={this.state.query} onChange={this.filterLocations}/>
                 <ul>
-                    {locationlist}
+                    {this.state.suggestions && locationlist}
                 </ul>
+                <button className="button" onClick={this.toggleSuggestions}>Show/Hide Suggestions</button>
             </div>
         );
     }

@@ -164,13 +164,11 @@ class App extends Component {
         var clientId = "TPIDDHBKB2QFBWEV2MPDOFGUSWXCXGAA5IVOWEMN5ASR3UJW";
         var clientSecret = "4HB1ZZJBVXC3F0BREBPSGXYK0VZ5ALS4XRNJZSBP1JROG0DE";
         var url = "https://api.foursquare.com/v2/venues/search?client_id=" + clientId + "&client_secret=" + clientSecret + "&v=20130815&ll=" + marker.getPosition().lat() + "," + marker.getPosition().lng() + "&limit=1";
-        console.log(url);
         fetch(url)
             .then(
                 function (response) {
                     if (response.status !== 200) {
-                        console.log('Looks like there was a problem. Status Code: ' +
-                            response.status);
+                        self.state.infowindow.setContent("Sorry data can't be loaded");
                         return;
                     }
 
@@ -182,12 +180,11 @@ class App extends Component {
                         var usersCount = '<b>Number of Users: </b>' + location_data.stats.usersCount + '<br>';
                         var tipCount = '<b>Number of Tips: </b>' + location_data.stats.tipCount + '<br>';
                         self.state.infowindow.setContent(checkinsCount + usersCount + tipCount + verified);
-                        console.log(data.response.venues[0]);
                     });
                 }
             )
             .catch(function (err) {
-                console.log('Fetch Error :-S', err);
+                self.state.infowindow.setContent("Sorry data can't be loaded");
             });
     }
 
@@ -219,5 +216,8 @@ function loadMapJS(src) {
     var script = window.document.createElement("script");
     script.src = src;
     script.async = true;
+    script.onerror = function () {
+        document.write("Google Maps can't be loaded");
+    };
     ref.parentNode.insertBefore(script, ref);
 }

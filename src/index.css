@@ -22,4 +22,25 @@ ul {
     overflow: auto;
     padding: 0px;
     margin: 0;
+    max-height: 200px;
+    overflow: auto;
+}
+
+.box {
+    cursor: pointer;
+    padding: 5px;
+}
+
+.box:hover {
+    background-color: #269abc;
+    color: white;
+}
+
+.button {
+    text-align: center;
+    padding: 5px;
+    background-color: white;
+    border: 1px darkgrey solid;
+    cursor: pointer;
+    width: 334px;
 }
