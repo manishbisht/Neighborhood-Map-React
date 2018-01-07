@@ -1,5 +1,25 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.search {
+    z-index: 1;
+    position: fixed;
+    top: 5px;
+    left: 5px;
+}
+
+.search-field {
+    width: 320px;
+    padding: 5px;
+}
+
+ul {
+    background: white;
+    border: 1px solid darkgrey;
+    overflow: auto;
+    padding: 0px;
+    margin: 0;
 }
