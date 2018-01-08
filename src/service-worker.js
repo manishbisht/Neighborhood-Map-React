@@ -3,12 +3,7 @@
  */
 
 self.addEventListener('fetch', function (e) {
-    if (e.request.url.indexOf('https://maps.googleapis.com') == 0 ||
-        e.request.url.indexOf('https://api.foursquare.com') == 0 ||
-        e.request.url.indexOf('https://csi.gstatic.com') == 0 ||
-        e.request.url.indexOf('https://csi.gstatic.com') == 0 ||
-        e.request.url.indexOf('https://fonts.googleapis.com') == 0 ||
-        e.request.url.indexOf('https://maps.gstatic.com ') == 0) {
+    if (e.request.url.indexOf('https://api.foursquare.com') == 0) {
         // Put data handler code here
         fetch(e.request)
             .then(function (response) {
