@@ -171,7 +171,6 @@ class App extends Component {
         this.state.infowindow.setContent('Loading Data...');
         this.state.map.setCenter(marker.getPosition());
         this.state.map.panBy(0, -200);
-        console.log(marker.getPosition());
         this.getMarkerInfo(marker);
     }
 
@@ -199,7 +198,8 @@ class App extends Component {
                         var checkinsCount = '<b>Number of CheckIn: </b>' + location_data.stats.checkinsCount + '<br>';
                         var usersCount = '<b>Number of Users: </b>' + location_data.stats.usersCount + '<br>';
                         var tipCount = '<b>Number of Tips: </b>' + location_data.stats.tipCount + '<br>';
-                        self.state.infowindow.setContent(checkinsCount + usersCount + tipCount + verified);
+                        var readMore = '<a href="https://foursquare.com/v/'+ location_data.id +'" target="_blank">Read More on Foursquare Website</a>'
+                        self.state.infowindow.setContent(checkinsCount + usersCount + tipCount + verified + readMore);
                     });
                 }
             )

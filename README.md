@@ -11,6 +11,7 @@ Open the online demo [here](https://manishbisht.github.io/Neighborhood-Map-React
 1. Type into the filter/search box to filter the shown locations on the map.
 2. Click on the button below the filter/search box to collapse or expand the suggestions list.
 3. Click anywhere on the map to close the information window that opens.
+4. Click on any marker to see the location details fetched from the [FourSquare APIs](https://developer.foursquare.com/).
 
 ## How to run the project in Development Mode
 The project uses [Node.js >= 6.x](https://nodejs.org/en/) and the [Create-React-App starter code](https://github.com/facebookincubator/create-react-app).

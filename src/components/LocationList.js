@@ -6,8 +6,7 @@ import LocationItem from './LocationItem';
 
 class LocationList extends Component {
     /**
-     * Load the google maps Asynchronously
-     * @param {url} url of the google maps script
+     * Constructor
      */
     constructor(props) {
         super(props);
@@ -70,7 +69,7 @@ class LocationList extends Component {
 
         return (
             <div className="search">
-                <input id="search-field" className="search-field" type="text" placeholder="Filter"
+                <input role="search" aria-labelledby="filter" id="search-field" className="search-field" type="text" placeholder="Filter"
                        value={this.state.query} onChange={this.filterLocations}/>
                 <ul>
                     {this.state.suggestions && locationlist}
