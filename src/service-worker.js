@@ -2,14 +2,13 @@
  * Created by manish on 8/1/18.
  */
 
-self.addEventListener('fetch', function (e) {
+/*self.addEventListener('fetch', function (e) {
     if (e.request.url.indexOf('https://api.foursquare.com') == 0) {
         // Put data handler code here
         fetch(e.request)
             .then(function (response) {
                 return caches.open(cacheName).then(function (cache) {
                     cache.put(e.request.url, response.clone());
-                    console.log('ServiceWorker Fetched & Cached Data');
                     return response;
                 });
             })
@@ -20,4 +19,4 @@ self.addEventListener('fetch', function (e) {
             })
         );
     }
-});
+});*/

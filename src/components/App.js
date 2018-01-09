@@ -107,6 +107,11 @@ class App extends Component {
         });
 
         var InfoWindow = new window.google.maps.InfoWindow({});
+
+        window.google.maps.event.addListener(InfoWindow, 'closeclick', function () {
+            self.closeInfoWindow();
+        });
+
         this.setState({
             'map': map,
             'infowindow': InfoWindow
