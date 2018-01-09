@@ -5,6 +5,10 @@ import React, {Component} from 'react';
 import LocationItem from './LocationItem';
 
 class LocationList extends Component {
+    /**
+     * Load the google maps Asynchronously
+     * @param {url} url of the google maps script
+     */
     constructor(props) {
         super(props);
         this.state = {
@@ -17,6 +21,9 @@ class LocationList extends Component {
         this.toggleSuggestions = this.toggleSuggestions.bind(this);
     }
 
+    /**
+     * Filter Locations based on user query
+     */
     filterLocations(event) {
         this.props.closeInfoWindow();
         const {value} = event.target;
@@ -42,12 +49,18 @@ class LocationList extends Component {
         });
     }
 
+    /**
+     * Show and hide suggestions
+     */
     toggleSuggestions() {
         this.setState({
             'suggestions': !this.state.suggestions
         });
     }
 
+    /**
+     * Render function of LocationList
+     */
     render() {
         var locationlist = this.state.locations.map(function (listItem, index) {
             return (
